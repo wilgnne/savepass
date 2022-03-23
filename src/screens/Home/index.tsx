@@ -39,7 +39,12 @@ export function Home() {
   }
 
   function handleFilterLoginData() {
-    // Filter results inside data, save with setSearchListData
+    const filteredData = data.filter(
+      (login: LoginDataProps) =>
+        login.service_name.toLowerCase().includes(searchText.toLowerCase())
+    );
+
+    setSearchListData(filteredData);
   }
 
   function handleChangeInputText(text: string) {
